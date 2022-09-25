@@ -1,4 +1,8 @@
-﻿namespace Rocky
+﻿using Microsoft.EntityFrameworkCore;
+using Rocky.Data;
+
+
+namespace Rocky
 {
     public class Startup
     {
@@ -10,6 +14,9 @@
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ApplicationDbContext>(options => 
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+
             services.AddMvc();
         }
 
