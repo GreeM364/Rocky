@@ -9,5 +9,6 @@ namespace Rocky.Data
         { }
 
         public DbSet<Category> Categories { get; set; }
+        public DbSet<Product> Products { get; set; }
     }
 }
