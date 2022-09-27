@@ -9,6 +9,7 @@ namespace Rocky.Models
         [Required]
         public string Name { get; set; }
         public string Description { get; set; }
+        public string ShortDesc { get; set; }
 
         [Range(1,int.MaxValue)]
         public double Price { get; set; }
