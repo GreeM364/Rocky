@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "EGRm4nMZFaI3x6tWwUvvtFnzXulG7xP3VyASj1DP06Q=",
+  "Hash": "GbLzIJvYUeO8g6EC8jr7w9Du3ci2us7fjrQb8zkHg0Q=",
   "Source": "Rocky",
   "BasePath": "_content/Rocky",
   "Mode": "Default",
@@ -28643,6 +28643,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\fontawesome\\webfonts\\fa-solid-900.woff2"
+    },
+    {
+      "Identity": "D:\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\product\\1efe65a0-20f4-4f40-ad8d-a05e2aba6b5b.jpg",
+      "SourceId": "Rocky",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Visual Studio\\Rocky\\Rocky\\wwwroot\\",
+      "BasePath": "_content/Rocky",
+      "RelativePath": "images/product/1efe65a0-20f4-4f40-ad8d-a05e2aba6b5b.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\product\\1efe65a0-20f4-4f40-ad8d-a05e2aba6b5b.jpg"
     },
     {
       "Identity": "D:\\Visual Studio\\Rocky\\Rocky\\wwwroot\\js\\site.js",
