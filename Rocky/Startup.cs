@@ -16,7 +16,13 @@ namespace Rocky
         {
             services.AddDbContext<ApplicationDbContext>(options => 
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-
+            services.AddHttpContextAccessor();
+            services.AddSession(option =>
+            {
+                option.IdleTimeout = TimeSpan.FromMinutes(10);
+                option.Cookie.HttpOnly = true;
+                option.Cookie.IsEssential = true;
+            });
             services.AddMvc();
         }
 
@@ -38,6 +44,7 @@ namespace Rocky
             app.UseRouting();
 
             app.UseAuthorization();
+            app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
