@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using Rocky.Data;
 
 
@@ -24,6 +25,9 @@ namespace Rocky
                 option.Cookie.IsEssential = true;
             });
             services.AddMvc();
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddDefaultTokenProviders().AddDefaultUI()
+                .AddEntityFrameworkStores<ApplicationDbContext>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -42,12 +46,13 @@ namespace Rocky
             app.UseStaticFiles();
 
             app.UseRouting();
-
+            app.UseAuthentication();
             app.UseAuthorization();
             app.UseSession();
 
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapRazorPages();
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");

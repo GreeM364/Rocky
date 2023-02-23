@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Visual Studio\\Rocky\\Rocky\\Rocky.csproj": {}
+    "D:\\Project\\Visual Studio\\Rocky\\Rocky\\Rocky.csproj": {}
   },
   "projects": {
-    "D:\\Visual Studio\\Rocky\\Rocky\\Rocky.csproj": {
+    "D:\\Project\\Visual Studio\\Rocky\\Rocky\\Rocky.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Visual Studio\\Rocky\\Rocky\\Rocky.csproj",
+        "projectUniqueName": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\Rocky.csproj",
         "projectName": "Rocky",
-        "projectPath": "D:\\Visual Studio\\Rocky\\Rocky\\Rocky.csproj",
-        "packagesPath": "C:\\Users\\DENYS\\.nuget\\packages\\",
-        "outputPath": "D:\\Visual Studio\\Rocky\\Rocky\\obj\\",
+        "projectPath": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\Rocky.csproj",
+        "packagesPath": "C:\\Users\\denis\\.nuget\\packages\\",
+        "outputPath": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\DENYS\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\denis\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,23 +44,31 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.14, )"
+            },
+            "Microsoft.AspNetCore.Identity.UI": {
+              "target": "Package",
+              "version": "[6.0.14, )"
+            },
             "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
               "target": "Package",
               "version": "[6.0.9, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[6.0.9, )"
+              "version": "[7.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.Tools": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[6.0.9, )"
+              "version": "[7.0.3, )"
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[6.0.9, )"
+              "version": "[6.0.12, )"
             }
           },
           "imports": [
@@ -69,7 +77,8 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
@@ -81,7 +90,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.102\\RuntimeIdentifierGraph.json"
         }
       }
     }
