@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "e/vVy9cnxOUGuf6We2RsLee9hGI3yyjHz5ahl+kQQ1c=",
+  "Hash": "1pZjd49hOVxjTz3Vcbavc9SLeNVqQj4+LMb39R2W6mo=",
   "Source": "Rocky",
   "BasePath": "_content/Rocky",
   "Mode": "Default",
@@ -29665,6 +29665,40 @@
       "OriginalItemSpec": "wwwroot\\fontawesome\\webfonts\\fa-solid-900.woff2"
     },
     {
+      "Identity": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\patio.jpg",
+      "SourceId": "Rocky",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\",
+      "BasePath": "_content/Rocky",
+      "RelativePath": "images/patio.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\patio.jpg"
+    },
+    {
+      "Identity": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\product\\4131a245-3577-4701-bf5c-5dd887241c23.jpg",
+      "SourceId": "Rocky",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\",
+      "BasePath": "_content/Rocky",
+      "RelativePath": "images/product/4131a245-3577-4701-bf5c-5dd887241c23.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\product\\4131a245-3577-4701-bf5c-5dd887241c23.jpg"
+    },
+    {
       "Identity": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\product\\7f5fb40e-b857-4410-8a34-1f46e5099557.jpg",
       "SourceId": "Rocky",
       "SourceType": "Discovered",
@@ -29731,6 +29765,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\product\\ac9eb037-604c-4b32-83a7-7b508c29dd88.jpg"
+    },
+    {
+      "Identity": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\product\\c74401d7-b80d-4363-8e91-d07407d975f6.jpg",
+      "SourceId": "Rocky",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\",
+      "BasePath": "_content/Rocky",
+      "RelativePath": "images/product/c74401d7-b80d-4363-8e91-d07407d975f6.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\images\\product\\c74401d7-b80d-4363-8e91-d07407d975f6.jpg"
     },
     {
       "Identity": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\js\\site.js",
@@ -30717,6 +30768,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\templates\\Inquiry.html",
+      "SourceId": "Rocky",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\",
+      "BasePath": "_content/Rocky",
+      "RelativePath": "templates/Inquiry.html",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\templates\\Inquiry.html"
     }
   ]
 }

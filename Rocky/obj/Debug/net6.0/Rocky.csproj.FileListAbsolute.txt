@@ -1124,3 +1124,4 @@ D:\Project\Visual Studio\Rocky\Rocky\bin\Debug\net6.0\Microsoft.IdentityModel.Ab
 D:\Project\Visual Studio\Rocky\Rocky\bin\Debug\net6.0\Microsoft.SqlServer.Server.dll
 D:\Project\Visual Studio\Rocky\Rocky\bin\Debug\net6.0\System.Memory.Data.dll
 D:\Project\Visual Studio\Rocky\Rocky\bin\Debug\net6.0\System.Reflection.MetadataLoadContext.dll
+D:\Project\Visual Studio\Rocky\Rocky\bin\Debug\net6.0\Mailjet.Client.dll

@@ -1,12 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "xVH0N7PbjVl1f4/2ZZXBHvHU98vWYAAWo2TaJtmpq/n87NnPfMgOnEq9oH859i34TlPtesbG/sAyRr1Vw+LqwQ==",
+  "dgSpecHash": "cJcUnyx/no30dooOXspYAAeSBlMlydzLHfwjG2spDXvWchiWumK1wtZm7NyntzHtxAhrfxCMgcG9uBBNOEU1fg==",
   "success": true,
   "projectFilePath": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\Rocky.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\denis\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
+    "C:\\Users\\denis\\.nuget\\packages\\mailjet.api\\1.0.0\\mailjet.api.1.0.0.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\messagepack\\2.1.152\\messagepack.2.1.152.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\messagepack.annotations\\2.1.152\\messagepack.annotations.2.1.152.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\messagepackanalyzer\\2.1.152\\messagepackanalyzer.2.1.152.nupkg.sha512",

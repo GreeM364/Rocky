@@ -6733,6 +6733,14 @@
       "PackagePath": "staticwebassets\\fontawesome\\webfonts\\fa-solid-900.woff2"
     },
     {
+      "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\patio.jpg",
+      "PackagePath": "staticwebassets\\images\\patio.jpg"
+    },
+    {
+      "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\product\\4131a245-3577-4701-bf5c-5dd887241c23.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\4131a245-3577-4701-bf5c-5dd887241c23.jpg"
+    },
+    {
       "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\product\\7f5fb40e-b857-4410-8a34-1f46e5099557.jpg",
       "PackagePath": "staticwebassets\\images\\product\\7f5fb40e-b857-4410-8a34-1f46e5099557.jpg"
     },
@@ -6747,6 +6755,10 @@
     {
       "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\product\\ac9eb037-604c-4b32-83a7-7b508c29dd88.jpg",
       "PackagePath": "staticwebassets\\images\\product\\ac9eb037-604c-4b32-83a7-7b508c29dd88.jpg"
+    },
+    {
+      "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\product\\c74401d7-b80d-4363-8e91-d07407d975f6.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\c74401d7-b80d-4363-8e91-d07407d975f6.jpg"
     },
     {
       "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\js\\site.js",
@@ -6979,6 +6991,10 @@
     {
       "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
       "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\templates\\Inquiry.html",
+      "PackagePath": "staticwebassets\\templates\\Inquiry.html"
     },
     {
       "Id": "obj\\Debug\\net6.0\\staticwebassets\\msbuild.Rocky.Microsoft.AspNetCore.StaticWebAssets.props",
