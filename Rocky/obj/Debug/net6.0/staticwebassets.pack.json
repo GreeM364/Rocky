@@ -6733,6 +6733,10 @@
       "PackagePath": "staticwebassets\\fontawesome\\webfonts\\fa-solid-900.woff2"
     },
     {
+      "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\dust_scratches.png",
+      "PackagePath": "staticwebassets\\images\\dust_scratches.png"
+    },
+    {
       "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\patio.jpg",
       "PackagePath": "staticwebassets\\images\\patio.jpg"
     },
@@ -6759,6 +6763,10 @@
     {
       "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\product\\c74401d7-b80d-4363-8e91-d07407d975f6.jpg",
       "PackagePath": "staticwebassets\\images\\product\\c74401d7-b80d-4363-8e91-d07407d975f6.jpg"
+    },
+    {
+      "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\tile.png",
+      "PackagePath": "staticwebassets\\images\\tile.png"
     },
     {
       "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\js\\site.js",

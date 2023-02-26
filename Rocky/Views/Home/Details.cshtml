@@ -1,4 +1,5 @@
-﻿@model Rocky.ViewModels.DetailsVM
+﻿@model Rocky_ViewModels.DetailsVM
+@using Rocky_Utility
 
 <div class="">
     <form method="post">
@@ -23,9 +24,8 @@
                                 <div class="row pl-3">
 
                                     <div class="col-12">
-                                        <span class="badge p-3 border" style="background-color:red">@Model.Product.Category.Name</span>
+                                        <span class="badge p-3 border text-dark" style="background-color:lavenderblush">@Model.Product.Category.Name</span>
                                         <h3 class="text-success"></h3>
-
                                         <p class="text-secondary">@Html.Raw(Model.Product.Description)</p>
                                     </div>
 

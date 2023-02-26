@@ -1,8 +1,13 @@
 {
   "ExpandedNodes": [
     "",
-    "\\Rocky"
+    "\\Rocky",
+    "\\Rocky\\Areas",
+    "\\Rocky\\Areas\\Identity",
+    "\\Rocky\\Areas\\Identity\\Pages",
+    "\\Rocky\\Areas\\Identity\\Pages\\Account",
+    "\\Rocky\\Controllers"
   ],
-  "SelectedNode": "\\Rocky\\WC.cs",
+  "SelectedNode": "\\Rocky\\Areas\\Identity\\Pages\\Account\\Register.cshtml",
   "PreviewInSolutionExplorer": false
 }

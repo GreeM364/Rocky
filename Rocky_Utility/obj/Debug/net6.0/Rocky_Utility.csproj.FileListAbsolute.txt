@@ -1,0 +1,12 @@
+D:\Project\Visual Studio\Rocky\Rocky_Utility\bin\Debug\net6.0\Rocky_Utility.deps.json
+D:\Project\Visual Studio\Rocky\Rocky_Utility\bin\Debug\net6.0\Rocky_Utility.dll
+D:\Project\Visual Studio\Rocky\Rocky_Utility\bin\Debug\net6.0\Rocky_Utility.pdb
+D:\Project\Visual Studio\Rocky\Rocky_Utility\obj\Debug\net6.0\Rocky_Utility.csproj.AssemblyReference.cache
+D:\Project\Visual Studio\Rocky\Rocky_Utility\obj\Debug\net6.0\Rocky_Utility.GeneratedMSBuildEditorConfig.editorconfig
+D:\Project\Visual Studio\Rocky\Rocky_Utility\obj\Debug\net6.0\Rocky_Utility.AssemblyInfoInputs.cache
+D:\Project\Visual Studio\Rocky\Rocky_Utility\obj\Debug\net6.0\Rocky_Utility.AssemblyInfo.cs
+D:\Project\Visual Studio\Rocky\Rocky_Utility\obj\Debug\net6.0\Rocky_Utility.csproj.CoreCompileInputs.cache
+D:\Project\Visual Studio\Rocky\Rocky_Utility\obj\Debug\net6.0\Rocky_Utility.dll
+D:\Project\Visual Studio\Rocky\Rocky_Utility\obj\Debug\net6.0\refint\Rocky_Utility.dll
+D:\Project\Visual Studio\Rocky\Rocky_Utility\obj\Debug\net6.0\Rocky_Utility.pdb
+D:\Project\Visual Studio\Rocky\Rocky_Utility\obj\Debug\net6.0\ref\Rocky_Utility.dll

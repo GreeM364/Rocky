@@ -1,10 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Rocky.Models;
+using Rocky_Models;
 using System.Diagnostics;
 using Microsoft.EntityFrameworkCore;
-using Rocky.Data;
-using Rocky.ViewModels;
-using Rocky.Utility;
+using Rocky_DataAccess;
+using Rocky_ViewModels;
+using Rocky_Utility;
 
 namespace Rocky.Controllers
 {
