@@ -126,6 +126,9 @@
             "projectReferences": {
               "D:\\Project\\Visual Studio\\Rocky\\Rocky_Models\\Rocky_Models.csproj": {
                 "projectPath": "D:\\Project\\Visual Studio\\Rocky\\Rocky_Models\\Rocky_Models.csproj"
+              },
+              "D:\\Project\\Visual Studio\\Rocky\\Rocky_Utility\\Rocky_Utility.csproj": {
+                "projectPath": "D:\\Project\\Visual Studio\\Rocky\\Rocky_Utility\\Rocky_Utility.csproj"
               }
             }
           }

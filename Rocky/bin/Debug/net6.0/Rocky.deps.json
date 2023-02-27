@@ -3432,7 +3432,8 @@
         "dependencies": {
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "6.0.14",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.3",
-          "Rocky_Models": "1.0.0"
+          "Rocky_Models": "1.0.0",
+          "Rocky_Utility": "1.0.0"
         },
         "runtime": {
           "Rocky_DataAccess.dll": {}

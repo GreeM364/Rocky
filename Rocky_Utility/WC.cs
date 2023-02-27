@@ -9,5 +9,7 @@
         public const string CastomerRole = "Customer";
 
         public const string EmailAdmin = "denys.rubel@nure.ua";
+
+        public const string CategoryName = "Category";
     }
 }

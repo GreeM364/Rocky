@@ -13,3 +13,5 @@ D:\Project\Visual Studio\Rocky\Rocky_DataAccess\obj\Debug\net6.0\Rocky_DataAcces
 D:\Project\Visual Studio\Rocky\Rocky_DataAccess\obj\Debug\net6.0\refint\Rocky_DataAccess.dll
 D:\Project\Visual Studio\Rocky\Rocky_DataAccess\obj\Debug\net6.0\Rocky_DataAccess.pdb
 D:\Project\Visual Studio\Rocky\Rocky_DataAccess\obj\Debug\net6.0\ref\Rocky_DataAccess.dll
+D:\Project\Visual Studio\Rocky\Rocky_DataAccess\bin\Debug\net6.0\Rocky_Utility.dll
+D:\Project\Visual Studio\Rocky\Rocky_DataAccess\bin\Debug\net6.0\Rocky_Utility.pdb
