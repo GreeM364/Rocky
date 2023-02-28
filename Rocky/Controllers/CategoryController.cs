@@ -35,8 +35,10 @@ namespace Rocky.Controllers
                 _categoryRepository.Add(category);
                 _categoryRepository.Save();
 
+                TempData[WC.Success] = "Category create successfully";
                 return RedirectToAction("Index");
             }
+            TempData[WC.Error] = "Error while creating category";
 
             return View(category);
         }
@@ -63,6 +65,7 @@ namespace Rocky.Controllers
                 _categoryRepository.Update(category);
                 _categoryRepository.Save();
 
+                TempData[WC.Success] = "Action completed successfully";
                 return RedirectToAction("Index");
             }
 
@@ -91,6 +94,8 @@ namespace Rocky.Controllers
             {
                 NotFound();
             }
+
+            TempData[WC.Success] = "Action completed successfully";
 
             _categoryRepository.Remove(obj);
             _categoryRepository.Save();

@@ -6769,6 +6769,10 @@
       "PackagePath": "staticwebassets\\images\\tile.png"
     },
     {
+      "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\js\\inquiry.js",
+      "PackagePath": "staticwebassets\\js\\inquiry.js"
+    },
+    {
       "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

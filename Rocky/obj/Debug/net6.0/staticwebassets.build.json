@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "u5HmMlUAHWyE6XUDyLm38QZqMXUvZU7L5kxsW/TMYzw=",
+  "Hash": "QTA370RQ/7IkKiR05imLObvDsp5fMvhE7Uxy3WNGq38=",
   "Source": "Rocky",
   "BasePath": "_content/Rocky",
   "Mode": "Default",
@@ -28796,6 +28796,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\images\\tile.png"
+    },
+    {
+      "Identity": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\js\\inquiry.js",
+      "SourceId": "Rocky",
+      "SourceType": "Discovered",
+      "ContentRoot": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\",
+      "BasePath": "_content/Rocky",
+      "RelativePath": "js/inquiry.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\inquiry.js"
     },
     {
       "Identity": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\js\\site.js",
