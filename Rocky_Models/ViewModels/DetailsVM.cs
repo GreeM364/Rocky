@@ -1,4 +1,4 @@
-﻿using Rocky_Models;
+﻿using Rocky_Models.Models;
 
 namespace Rocky_ViewModels
 {

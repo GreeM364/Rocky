@@ -1,5 +1,5 @@
 ﻿using Rocky_DataAccess.Repository.IRepositoty;
-using Rocky_Models;
+using Rocky_Models.Models;
 
 
 namespace Rocky_DataAccess.Repository

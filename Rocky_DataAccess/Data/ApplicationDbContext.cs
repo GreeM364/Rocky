@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using Rocky_Models;
+using Rocky_Models.Models;
 
 namespace Rocky_DataAccess
 {
@@ -12,5 +12,7 @@ namespace Rocky_DataAccess
         public DbSet<Category> Categories { get; set; }
         public DbSet<Product> Products { get; set; }
         public DbSet<ApplicationUser> ApplicationUsers { get; set; }
+        public DbSet<InquiryHeader> InquiryHeaders { get; set; }
+        public DbSet<InquiryDetail> InquiryDetail { get; set; }
     }
 }

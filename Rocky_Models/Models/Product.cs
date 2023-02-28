@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Rocky_Models
+namespace Rocky_Models.Models
 {
     public class Product
     {

@@ -10,7 +10,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.WebUtilities;
-using Rocky_Models;
+using Rocky_Models.Models;
 using Rocky_Utility;
 
 namespace Rocky.Areas.Identity.Pages.Account

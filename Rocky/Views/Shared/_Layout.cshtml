@@ -1,6 +1,7 @@
 ﻿@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 @using Rocky_Utility
+@using Rocky_Models.Models
 
 <!DOCTYPE html>
 <html lang="en">
@@ -75,7 +76,7 @@
         </nav>
     </header>
 
-    <div class="container">
+    <div class="container pb-5">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
