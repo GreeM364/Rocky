@@ -58,7 +58,7 @@ namespace Rocky.Controllers
             return View(detailsVM);
         }
         [HttpPost,ActionName("Details")]
-        public IActionResult DetailsPost(int Id)
+        public IActionResult DetailsPost(int Id, DetailsVM details)
         {
             List<ShoppingCart> shoppingCartsList = new List<ShoppingCart>();
 
@@ -67,7 +67,7 @@ namespace Rocky.Controllers
             {
                 shoppingCartsList = HttpContext.Session.Get<List<ShoppingCart>>(WC.SessionCart);
             }
-            shoppingCartsList.Add(new ShoppingCart {ProductId = Id});
+            shoppingCartsList.Add(new ShoppingCart {ProductId = Id, SqFt = details.Product.TempSqFt});
             HttpContext.Session.Set(WC.SessionCart, shoppingCartsList);
 
             TempData[WC.Success] = "Item add to cart successfully";

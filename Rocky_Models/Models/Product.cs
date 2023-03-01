@@ -1,9 +1,15 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Rocky_Models.Models
 {
     public class Product
     {
+        public Product()
+        {
+            TempSqFt = 1;
+        }
+
         public int Id { get; set; }
 
         [Required]
@@ -11,9 +17,13 @@ namespace Rocky_Models.Models
         public string Description { get; set; }
         public string ShortDesc { get; set; }
 
-        [Range(1,int.MaxValue)]
+        [Range(1, int.MaxValue)]
         public double Price { get; set; }
         public string Image { get; set; }
+
+        [NotMapped]
+        [Range(1,10000)]
+        public int TempSqFt { get; set; }
 
         [Display(Name = "Category Type")]
         public int CategoryId { get; set; }
