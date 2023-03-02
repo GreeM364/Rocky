@@ -166,4 +166,22 @@
 
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />
+
+    <script src="https://js.braintreegateway.com/web/dropin/1.22.1/js/dropin.min.js"></script>
+    <script>
+        var client_token = "@ViewBag.ClientToken";
+        var form = document.querySelector('#payment-form');
+        braintree.dropin.create({
+            authorization: client_token,
+            container: '#dropin-container'
+        }, function (createErr, instance) {
+            form.addEventListener('submit', function () {
+                event.preventDefault();
+                instance.requestPaymentMethod(function (err, payload) {
+                    document.querySelector('#nonce').value = payload.nonce;
+                    form.submit();
+                });
+            });
+        });
+    </script>
 }

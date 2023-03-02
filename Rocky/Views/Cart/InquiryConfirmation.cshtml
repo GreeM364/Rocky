@@ -1,9 +1,17 @@
-﻿<div>
+﻿@model Rocky_Models.Models.OrderHeader
 
-    <h1 class="text-info text-center">Inquery Confirmation</h1>
+<div class="text-center">
 
-    <p class="text-center">We have recieved your inquery and someone from our team will contact you shortly!</p>
+    @if (Model != null)
+    {
+        <h1 class="text-info"> Order Created</h1>
+        <p>Order #@Model.Id has been created successfully!</p>
+    }
+    else
+    {
+        <h1 class="text-info">Inquiry Confirmation</h1>
 
-    <img src="/images/patio.jpg" width="80%" class="justify-content-center" />
-
+        <p>We have recieved your inquiry and someone from our team will contact you shortly!</p>
+    }
+    <img src="/images/patio.jpg" width="80%" />
 </div>

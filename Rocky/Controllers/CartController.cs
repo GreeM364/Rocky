@@ -1,10 +1,11 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Braintree;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
-using Rocky_DataAccess;
 using Rocky_DataAccess.Repository.IRepositoty;
 using Rocky_Models.Models;
 using Rocky_Utility;
+using Rocky_Utility.BrainTree;
 using Rocky_ViewModels;
 using System.Security.Claims;
 using System.Text;
@@ -19,8 +20,11 @@ namespace Rocky.Controllers
         private readonly IApplicationUserRepository _applicationUserRepository;
         private readonly IInquiryHeaderRepository _inquiryHeaderRepository;
         private readonly IInquiryDetailRepository _inquiryDetailRepository;
+        private readonly IOrderHeaderRepository _orderHeaderRepository;
+        private readonly IOrderDetailRepository _orderDetailRepository;
 
         private readonly IWebHostEnvironment _webHostEnvironment;
+        public readonly IBrainTreeGate _brainTreeGate;
         private readonly IEmailSender _emailSender;
 
         [BindProperty]
@@ -28,15 +32,19 @@ namespace Rocky.Controllers
 
         public CartController(IWebHostEnvironment webHostEnvironment, IEmailSender emailSender, IProductRepository productRepository,
                               IInquiryHeaderRepository inquiryHeaderRepository, IInquiryDetailRepository inquiryDetailRepository,
-                              IApplicationUserRepository applicationUserRepository)
+                              IApplicationUserRepository applicationUserRepository, IOrderHeaderRepository orderHeaderRepository,
+                              IOrderDetailRepository orderDetailRepository, IBrainTreeGate brainTreeGate)
         {
             _webHostEnvironment = webHostEnvironment;
+            _brainTreeGate = brainTreeGate;
             _emailSender = emailSender;
 
             _productRepository = productRepository;
             _applicationUserRepository = applicationUserRepository;
             _inquiryHeaderRepository = inquiryHeaderRepository;
             _inquiryDetailRepository = inquiryDetailRepository;
+            _orderHeaderRepository = orderHeaderRepository;
+            _orderDetailRepository = orderDetailRepository;
         }
         public IActionResult Index()
         {
@@ -100,6 +108,10 @@ namespace Rocky.Controllers
                     applicationUser = new ApplicationUser();
                 }
 
+                var gateway = _brainTreeGate.GetGateway();
+                var clientToken = gateway.ClientToken.Generate();
+                ViewBag.ClientToken = clientToken;
+
             }
             else
             {
@@ -139,66 +151,132 @@ namespace Rocky.Controllers
         [HttpPost]
         [ValidateAntiForgeryToken]
         [ActionName("Summary")]
-        public async Task<IActionResult> SummaryPost(ProductUserVM productUserVm)
+        public async Task<IActionResult> SummaryPost(IFormCollection collection, ProductUserVM productUserVm)
         {
             var claimsIdentity = (ClaimsIdentity)User.Identity;
             var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
-            var PathToTemplate = _webHostEnvironment.WebRootPath + Path.DirectorySeparatorChar.ToString() 
+            if(User.IsInRole(WC.AdminRole))
+            {
+                OrderHeader orderHeader = new OrderHeader()
+                {
+                    CreatedByUserId = claim.Value,
+                    FinalOrderTotal = ProductUserVM.ProductsList.Sum(x => x.TempSqFt * x.Price),
+                    City = ProductUserVM.ApplicationUser.City,
+                    StreetAddress = ProductUserVM.ApplicationUser.StreetAddress,
+                    State = ProductUserVM.ApplicationUser.State,
+                    PostalCode = ProductUserVM.ApplicationUser.PostalCode,
+                    FullName = ProductUserVM.ApplicationUser.FullName,
+                    Email = ProductUserVM.ApplicationUser.Email,
+                    PhoneNumber = ProductUserVM.ApplicationUser.PhoneNumber,
+                    OrderDate = DateTime.Now,
+                    OrderStatus = WC.StatusPending               
+                };
+
+                _orderHeaderRepository.Add(orderHeader);
+                _orderHeaderRepository.Save();
+
+                foreach (var prod in ProductUserVM.ProductsList)
+                {
+                    OrderDetail orderDetail = new OrderDetail()
+                    {
+                        OrderHeaderId = orderHeader.Id,
+                        PricePerSqFt = prod.Price,
+                        Sqft = prod.TempSqFt,
+                        ProductId = prod.Id
+                    };
+                    _orderDetailRepository.Add(orderDetail);
+                }
+                _orderDetailRepository.Save();
+
+                string nonceFromTheClient = collection["payment_method_nonce"];
+
+                var request = new TransactionRequest
+                {
+                    Amount = Convert.ToDecimal(orderHeader.FinalOrderTotal),
+                    PaymentMethodNonce = nonceFromTheClient,
+                    OrderId = orderHeader.Id.ToString(),
+                    Options = new TransactionOptionsRequest
+                    {
+                        SubmitForSettlement = true
+                    }
+                };
+
+                var gateway = _brainTreeGate.GetGateway();
+                Result<Transaction> result = gateway.Transaction.Sale(request);
+
+                if (result.Target.ProcessorResponseText == "Approved")
+                {
+                    orderHeader.TransactionId = result.Target.Id;
+                    orderHeader.OrderStatus = WC.StatusApproved;
+                }
+                else
+                {
+                    orderHeader.OrderStatus = WC.StatusCancelled;
+                }
+                _orderHeaderRepository.Save();
+
+                return RedirectToAction(nameof(InquiryConfirmation), new { id = orderHeader.Id });
+            }
+            else
+            {
+                var PathToTemplate = _webHostEnvironment.WebRootPath + Path.DirectorySeparatorChar.ToString()
                 + "templates" + Path.DirectorySeparatorChar.ToString() + "Inquiry.html";
 
-            var subject = "New Inquery";
-            var HtmlBody = "";
-            using (StreamReader sr = System.IO.File.OpenText(PathToTemplate))
-            {
-                HtmlBody= sr.ReadToEnd();
-            }
-
-            StringBuilder productListSB = new StringBuilder();
-            foreach(var prod in ProductUserVM.ProductsList)
-            {
-                productListSB.Append($"- Name: {prod.Name} <span style='font-size:14px;'> (ID: {prod.Id})</span> <br/>");
-            }
-
-            string messageBody = string.Format(HtmlBody,
-                ProductUserVM.ApplicationUser.FullName,
-                ProductUserVM.ApplicationUser.Email,
-                ProductUserVM.ApplicationUser.PhoneNumber,
-                productListSB.ToString());
-
-            await _emailSender.SendEmailAsync(WC.EmailAdmin, subject, messageBody);
-
-            InquiryHeader inquiryHeader = new InquiryHeader()
-            {
-                ApplicationUserId = claim.Value,
-                FullName = ProductUserVM.ApplicationUser.FullName,
-                Email = ProductUserVM.ApplicationUser.Email,
-                PhoneNumber = ProductUserVM.ApplicationUser.PhoneNumber,
-                InquiryDate = DateTime.Now
-            };
-
-            _inquiryHeaderRepository.Add(inquiryHeader);
-            _inquiryHeaderRepository.Save();
-
-            foreach(var prod in ProductUserVM.ProductsList)
-            {
-                InquiryDetail inquiryDetail = new InquiryDetail()
+                var subject = "New Inquery";
+                var HtmlBody = "";
+                using (StreamReader sr = System.IO.File.OpenText(PathToTemplate))
                 {
-                    InquiryHeaderId = inquiryHeader.Id,
-                    ProductId = prod.Id
+                    HtmlBody = sr.ReadToEnd();
+                }
+
+                StringBuilder productListSB = new StringBuilder();
+                foreach (var prod in ProductUserVM.ProductsList)
+                {
+                    productListSB.Append($"- Name: {prod.Name} <span style='font-size:14px;'> (ID: {prod.Id})</span> <br/>");
+                }
+
+                string messageBody = string.Format(HtmlBody,
+                    ProductUserVM.ApplicationUser.FullName,
+                    ProductUserVM.ApplicationUser.Email,
+                    ProductUserVM.ApplicationUser.PhoneNumber,
+                    productListSB.ToString());
+
+                await _emailSender.SendEmailAsync(WC.EmailAdmin, subject, messageBody);
+
+                InquiryHeader inquiryHeader = new InquiryHeader()
+                {
+                    ApplicationUserId = claim.Value,
+                    FullName = ProductUserVM.ApplicationUser.FullName,
+                    Email = ProductUserVM.ApplicationUser.Email,
+                    PhoneNumber = ProductUserVM.ApplicationUser.PhoneNumber,
+                    InquiryDate = DateTime.Now
                 };
-                _inquiryDetailRepository.Add(inquiryDetail);
+
+                _inquiryHeaderRepository.Add(inquiryHeader);
+                _inquiryHeaderRepository.Save();
+
+                foreach (var prod in ProductUserVM.ProductsList)
+                {
+                    InquiryDetail inquiryDetail = new InquiryDetail()
+                    {
+                        InquiryHeaderId = inquiryHeader.Id,
+                        ProductId = prod.Id
+                    };
+                    _inquiryDetailRepository.Add(inquiryDetail);
+                }
+                _inquiryDetailRepository.Save();
+                TempData[WC.Success] = "Inquiry submitted successfully";
             }
-            _inquiryDetailRepository.Save();
-            TempData[WC.Success] = "Inquiry submitted successfully";
 
             return RedirectToAction(nameof(InquiryConfirmation));
         }
 
-        public IActionResult InquiryConfirmation(ProductUserVM productUserVm)
+        public IActionResult InquiryConfirmation(int id = 0)  
         {
+            OrderHeader orderHeader = _orderHeaderRepository.FirstOrDefault(x => x.Id == id);
             HttpContext.Session.Clear();
-            return View();
+            return View(orderHeader);
         }
 
         public IActionResult Remove(int id)
@@ -215,6 +293,12 @@ namespace Rocky.Controllers
             HttpContext.Session.Set(WC.SessionCart, shoppingCartList);
 
             return RedirectToAction(nameof(Index));
+        }
+
+        public IActionResult Clear()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpPost]

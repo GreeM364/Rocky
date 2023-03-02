@@ -580,3 +580,5 @@ D:\Project\Visual Studio\Rocky\Rocky\obj\Debug\net6.0\refint\Rocky.dll
 D:\Project\Visual Studio\Rocky\Rocky\obj\Debug\net6.0\Rocky.pdb
 D:\Project\Visual Studio\Rocky\Rocky\obj\Debug\net6.0\Rocky.genruntimeconfig.cache
 D:\Project\Visual Studio\Rocky\Rocky\obj\Debug\net6.0\ref\Rocky.dll
+D:\Project\Visual Studio\Rocky\Rocky\bin\Debug\net6.0\Braintree.dll
+D:\Project\Visual Studio\Rocky\Rocky\bin\Debug\net6.0\System.Xml.XPath.XmlDocument.dll
