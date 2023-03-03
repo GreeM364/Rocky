@@ -38,6 +38,12 @@ namespace Rocky
             services.Configure<BrainTreeSettings>(Configuration.GetSection("BrainTree"));
             services.AddSingleton<IBrainTreeGate, BrainTreeGate>();
 
+            services.AddAuthentication().AddFacebook(Options =>
+            {
+                Options.AppId = "1075355417188254";
+                Options.AppSecret = "244aba1f2ae39156c4510e46ebefdf53";
+            });
+
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IInquiryHeaderRepository, InquiryHeaderRepository>();

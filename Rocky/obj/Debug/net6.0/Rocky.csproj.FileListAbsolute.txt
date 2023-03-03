@@ -582,3 +582,4 @@ D:\Project\Visual Studio\Rocky\Rocky\obj\Debug\net6.0\Rocky.genruntimeconfig.cac
 D:\Project\Visual Studio\Rocky\Rocky\obj\Debug\net6.0\ref\Rocky.dll
 D:\Project\Visual Studio\Rocky\Rocky\bin\Debug\net6.0\Braintree.dll
 D:\Project\Visual Studio\Rocky\Rocky\bin\Debug\net6.0\System.Xml.XPath.XmlDocument.dll
+D:\Project\Visual Studio\Rocky\Rocky\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Facebook.dll
