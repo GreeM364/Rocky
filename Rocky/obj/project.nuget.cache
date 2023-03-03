@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "xV/gqpgXwNTHua3xPh/PnCfF3XqA8cHa7iMRFlXE7b8T3Rc3CIs4+TwtaxXG7alD0k32FDLlGQdEI8DjjpZj4Q==",
+  "dgSpecHash": "iBGEiTN/af8AO+YSKKwQDZMXjexH4TSx2NDofri//ZirCgsqnAArvSfqOPHO4TgheiyaePEfrqQunoD+binLIQ==",
   "success": true,
   "projectFilePath": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\Rocky.csproj",
   "expectedPackageFiles": [
@@ -120,7 +120,7 @@
     "C:\\Users\\denis\\.nuget\\packages\\microsoft.win32.systemevents\\6.0.0\\microsoft.win32.systemevents.6.0.0.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\mono.texttemplating\\2.2.1\\mono.texttemplating.2.2.1.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\netstandard.library\\1.6.1\\netstandard.library.1.6.1.nupkg.sha512",
-    "C:\\Users\\denis\\.nuget\\packages\\newtonsoft.json\\13.0.1\\newtonsoft.json.13.0.1.nupkg.sha512",
+    "C:\\Users\\denis\\.nuget\\packages\\newtonsoft.json\\13.0.2\\newtonsoft.json.13.0.2.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\newtonsoft.json.bson\\1.0.1\\newtonsoft.json.bson.1.0.1.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\nuget.common\\6.3.1\\nuget.common.6.3.1.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\nuget.configuration\\6.3.1\\nuget.configuration.6.3.1.nupkg.sha512",
@@ -147,6 +147,8 @@
     "C:\\Users\\denis\\.nuget\\packages\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.14.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.04-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.ubuntu.16.10-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
+    "C:\\Users\\denis\\.nuget\\packages\\syncfusion.ej2.aspnet.core\\20.4.0.52\\syncfusion.ej2.aspnet.core.20.4.0.52.nupkg.sha512",
+    "C:\\Users\\denis\\.nuget\\packages\\syncfusion.licensing\\20.4.0.52\\syncfusion.licensing.20.4.0.52.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\system.appcontext\\4.3.0\\system.appcontext.4.3.0.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\system.buffers\\4.5.1\\system.buffers.4.5.1.nupkg.sha512",
     "C:\\Users\\denis\\.nuget\\packages\\system.codedom\\4.4.0\\system.codedom.4.4.0.nupkg.sha512",

@@ -166,22 +166,58 @@
 
 @section Scripts{
     <partial name="_ValidationScriptsPartial" />
-
     <script src="https://js.braintreegateway.com/web/dropin/1.22.1/js/dropin.min.js"></script>
     <script>
         var client_token = "@ViewBag.ClientToken";
         var form = document.querySelector('#payment-form');
+
         braintree.dropin.create({
             authorization: client_token,
             container: '#dropin-container'
         }, function (createErr, instance) {
             form.addEventListener('submit', function () {
                 event.preventDefault();
+
                 instance.requestPaymentMethod(function (err, payload) {
                     document.querySelector('#nonce').value = payload.nonce;
                     form.submit();
                 });
             });
         });
+
+
+        function validateInput() {
+            var app_name = document.getElementById("ApplicationUser_FullName").value;
+            var app_phone = document.getElementById("ApplicationUser_PhoneNumber").value;
+            var app_email = document.getElementById("ApplicationUser_Email").value;
+
+            if (app_name.toString() == '') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please enter Full Name!'
+                })
+                return false;
+            }
+            if (app_phone.toString() == '') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please enter Phone Number!'
+                })
+                return false;
+            }
+            if (app_email.toString() == '') {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Oops...',
+                    text: 'Please enter Email!'
+                })
+                return false;
+            }
+
+            return true;
+
+        }
     </script>
 }
