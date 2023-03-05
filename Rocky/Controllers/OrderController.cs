@@ -1,7 +1,8 @@
 ﻿using Braintree;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Rocky_DataAccess.Repository.IRepositoty;
+using Rocky_DataAccess.Repository.IRepository;
 using Rocky_Models.Models;
 using Rocky_Models.ViewModels;
 using Rocky_Utility;
@@ -9,6 +10,7 @@ using Rocky_Utility.BrainTree;
 
 namespace Rocky.Controllers
 {
+    [Authorize(Roles = WC.AdminRole)]
     public class OrderController : Controller
     {
         private readonly IOrderHeaderRepository _orderHeaderRepository;

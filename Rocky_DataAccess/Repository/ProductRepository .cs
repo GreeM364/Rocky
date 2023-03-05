@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc.Rendering;
-using Rocky_DataAccess.Repository.IRepositoty;
+using Rocky_DataAccess.Repository.IRepository;
 using Rocky_Models.Models;
 using Rocky_Utility;
 

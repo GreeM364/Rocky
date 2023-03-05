@@ -157,12 +157,16 @@ namespace Rocky.Areas.Identity.Pages.Account
                     }
                     else
                     {
-                        if (!User.IsInRole(WC.AdminRole))
-                            await _signInManager.SignInAsync(user, isPersistent: false);
+                        if (User.IsInRole(WC.AdminRole))
+                        {
+                            TempData[WC.Success] = user.FullName + " has been registered";
+                            return RedirectToAction("Index", "Home");
+                        }
                         else
-                            return RedirectToAction("Index");
-
-                        return LocalRedirect(returnUrl);
+                        {
+                            await _signInManager.SignInAsync(user, isPersistent: false);
+                            return LocalRedirect(returnUrl);
+                        }
                     }
                 }
                 foreach (var error in result.Errors)

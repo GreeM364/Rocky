@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Rocky_DataAccess.Repository.IRepositoty;
+using Rocky_DataAccess.Repository.IRepository;
 using System.Linq.Expressions;
 
 

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Rocky_DataAccess;
 using Rocky_DataAccess.Repository;
-using Rocky_DataAccess.Repository.IRepositoty;
+using Rocky_DataAccess.Repository.IRepository;
 using Rocky_Utility;
 using Rocky_Utility.BrainTree;
 

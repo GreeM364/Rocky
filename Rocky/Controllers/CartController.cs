@@ -2,11 +2,11 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
-using Rocky_DataAccess.Repository.IRepositoty;
+using Rocky_DataAccess.Repository.IRepository;
 using Rocky_Models.Models;
 using Rocky_Utility;
 using Rocky_Utility.BrainTree;
-using Rocky_ViewModels;
+using Rocky_Models.ViewModels;
 using System.Security.Claims;
 using System.Text;
 
@@ -115,9 +115,10 @@ namespace Rocky.Controllers
             }
             else
             {
-                var userId = User.FindFirstValue(ClaimTypes.Name);
+                var claimsIdentity = (ClaimsIdentity)User.Identity;
+                var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
 
-                applicationUser = _applicationUserRepository.FirstOrDefault(u => u.Id == userId);
+                applicationUser = _applicationUserRepository.FirstOrDefault(u => u.Id == claim.Value);
             }
 
 
