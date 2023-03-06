@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Rocky_DataAccess;
+using Rocky_DataAccess.Initializer;
 using Rocky_DataAccess.Repository;
 using Rocky_DataAccess.Repository.IRepository;
 using Rocky_Utility;
@@ -44,6 +45,8 @@ namespace Rocky
                 Options.AppSecret = "244aba1f2ae39156c4510e46ebefdf53";
             });
 
+            services.AddScoped<IDbInitializer, DbInitializer>();
+
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IInquiryHeaderRepository, InquiryHeaderRepository>();
@@ -54,7 +57,7 @@ namespace Rocky
 
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IDbInitializer dbInitializer)
         {
             if (env.IsDevelopment())
             {
@@ -72,6 +75,7 @@ namespace Rocky
             app.UseRouting();
             app.UseAuthentication();
             app.UseAuthorization();
+            dbInitializer.Initialize();
             app.UseSession();
 
             app.UseEndpoints(endpoints =>

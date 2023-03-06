@@ -12557,6 +12557,7 @@
       "Microsoft.AspNetCore.Authentication.Facebook >= 6.0.14",
       "Microsoft.AspNetCore.DataProtection >= 7.0.3",
       "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation >= 6.0.9",
+      "Microsoft.EntityFrameworkCore.SqlServer >= 7.0.3",
       "Microsoft.EntityFrameworkCore.Tools >= 7.0.3",
       "Microsoft.VisualStudio.Web.CodeGeneration.Design >= 6.0.12",
       "Rocky_DataAccess >= 1.0.0",
@@ -12630,6 +12631,10 @@
           "Microsoft.AspNetCore.Mvc.Razor.RuntimeCompilation": {
             "target": "Package",
             "version": "[6.0.9, )"
+          },
+          "Microsoft.EntityFrameworkCore.SqlServer": {
+            "target": "Package",
+            "version": "[7.0.3, )"
           },
           "Microsoft.EntityFrameworkCore.Tools": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
