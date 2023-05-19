@@ -585,3 +585,4 @@ D:\Project\Visual Studio\Rocky\Rocky\bin\Debug\net6.0\System.Xml.XPath.XmlDocume
 D:\Project\Visual Studio\Rocky\Rocky\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.Facebook.dll
 D:\Project\Visual Studio\Rocky\Rocky\bin\Debug\net6.0\Syncfusion.EJ2.dll
 D:\Project\Visual Studio\Rocky\Rocky\bin\Debug\net6.0\Syncfusion.Licensing.dll
+D:\Project\Visual Studio\Rocky\Rocky\bin\Debug\net6.0\refs\Microsoft.Extensions.FileProviders.Embedded.dll

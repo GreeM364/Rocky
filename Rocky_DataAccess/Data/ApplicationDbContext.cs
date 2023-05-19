@@ -16,5 +16,7 @@ namespace Rocky_DataAccess
         public DbSet<InquiryDetail> InquiryDetail { get; set; }
         public DbSet<OrderHeader> OrdersHeaders { get; set; }
         public DbSet<OrderDetail> OrderDetails { get; set; }
+        public DbSet<Post> Posts { get; set; }
+
     }
 }

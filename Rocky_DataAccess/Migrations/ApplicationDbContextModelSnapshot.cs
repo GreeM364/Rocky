@@ -400,6 +400,51 @@ namespace Rocky_DataAccess
                     b.ToTable("OrdersHeaders");
                 });
 
+            modelBuilder.Entity("Rocky_Models.Models.Post", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CreatedByUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Image")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Like")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ShortText")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Text")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Type")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CreatedByUserId");
+
+                    b.ToTable("Posts");
+                });
+
             modelBuilder.Entity("Rocky_Models.Models.Product", b =>
                 {
                     b.Property<int>("Id")
@@ -549,6 +594,17 @@ namespace Rocky_DataAccess
                 });
 
             modelBuilder.Entity("Rocky_Models.Models.OrderHeader", b =>
+                {
+                    b.HasOne("Rocky_Models.Models.ApplicationUser", "CreatedBy")
+                        .WithMany()
+                        .HasForeignKey("CreatedByUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CreatedBy");
+                });
+
+            modelBuilder.Entity("Rocky_Models.Models.Post", b =>
                 {
                     b.HasOne("Rocky_Models.Models.ApplicationUser", "CreatedBy")
                         .WithMany()

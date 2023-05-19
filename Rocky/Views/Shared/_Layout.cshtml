@@ -39,6 +39,9 @@
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" asp-area="" asp-controller="Blog" asp-action="Index">Posts</a>
+                        </li>
                         @if (User.IsInRole(WC.AdminRole))
                         {
                             <li class="nav-item dropdown">

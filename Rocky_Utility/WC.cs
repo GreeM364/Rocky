@@ -5,6 +5,7 @@ namespace Rocky_Utility
     public static class WC
     {
         public const string ImagePath = @"\images\product\";
+        public const string ImagePathPosts = @"\images\post\";
 
         public const string SessionCart = "ShoppingCartSession";
         public const string SessionInquiryId = "InquirySession";

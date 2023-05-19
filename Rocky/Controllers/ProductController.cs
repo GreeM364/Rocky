@@ -4,6 +4,7 @@ using Rocky_Models.Models;
 using Rocky_Models.ViewModels;
 using Rocky_Utility;
 using Rocky_DataAccess.Repository.IRepository;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
 
 namespace Rocky.Controllers
 {
@@ -51,14 +52,14 @@ namespace Rocky.Controllers
         [ValidateAntiForgeryToken]
         public IActionResult Upsert(ProductVM productVM)
         {
-            if (ModelState.IsValid)
-            {
+            //if (ModelState.IsValid)
+            //{
                 var files = HttpContext.Request.Form.Files;
                 string webRootPath = _webHostEnvironment.WebRootPath;
 
                 if (productVM.Product.Id == 0)
                 {
-                    string upload = webRootPath + WC.ImagePath;
+                    string upload = webRootPath + WC.ImagePathPosts;
                     string fileName = Guid.NewGuid().ToString();
                     string extension = Path.GetExtension(files[0].FileName);
 
@@ -105,10 +106,12 @@ namespace Rocky.Controllers
 
                 _productRepository.Save();
                 return RedirectToAction("Index");
-            }
-            productVM.CategorySelectList = _productRepository.GetAllDropdownList(WC.CategoryName);
+            //}
 
-            return View(productVM);
+
+            //productVM.CategorySelectList = _productRepository.GetAllDropdownList(WC.CategoryName);
+
+            //return View(productVM);
         }
 
         public IActionResult Delete(int? id)

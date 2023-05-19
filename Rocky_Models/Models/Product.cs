@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using Microsoft.AspNetCore.Mvc.ModelBinding;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Rocky_Models.Models
@@ -10,6 +11,7 @@ namespace Rocky_Models.Models
             TempSqFt = 1;
         }
 
+        [Key]
         public int Id { get; set; }
 
         [Required]
@@ -19,6 +21,7 @@ namespace Rocky_Models.Models
 
         [Range(1, int.MaxValue)]
         public double Price { get; set; }
+
         public string Image { get; set; }
 
         [NotMapped]
@@ -27,6 +30,7 @@ namespace Rocky_Models.Models
 
         [Display(Name = "Category Type")]
         public int CategoryId { get; set; }
+        [ForeignKey("CategoryId")]
         public Category Category { get; set; }
     }
 }
