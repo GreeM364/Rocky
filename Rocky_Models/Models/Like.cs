@@ -1,7 +1,12 @@
-﻿namespace Rocky_Models.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Rocky_Models.Models
 {
     public class Like
     {
+        [Key]
+        public int Id { get; set; }
+
         public string ApplicationUserId { get; set; }
         public ApplicationUser ApplicationUser { get; set; }
 

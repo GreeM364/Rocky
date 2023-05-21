@@ -24,9 +24,11 @@ namespace Rocky_Models.Models
         public string Image { get; set; }
         public DateTime CreatedDate { get; set; }
 
+        [NotMapped]
+        public int Count { get; set; }
+
         public string CreatedByUserId { get; set; }
 
-        [ForeignKey("CreatedByUserId")]
-        public ApplicationUser CreatedBy { get; set; }
+        public List<Like> Likes { get; set; }
     }
 }

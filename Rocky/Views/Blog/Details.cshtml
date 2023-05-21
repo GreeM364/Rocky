@@ -139,7 +139,7 @@
         <span class="post-date">Created on: @Model.CreatedDate.ToString("yyyy-MM-dd")</span>
     </div>
     <div class="post-actions">
-        <span class="like-count">Like Count: @Model.Like</span>
+        <span class="like-count">Like Count: @Model.Count</span>
         <form method="post" action="@Url.Action("Like", "Blog")">
             @Html.AntiForgeryToken()
             <input type="hidden" name="Id" value="@Model.Id" />

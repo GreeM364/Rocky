@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Rocky_DataAccess.Repository;
 using Rocky_DataAccess.Repository.IRepository;
 using Rocky_Models.Models;
 using Rocky_Models.ViewModels;
@@ -14,27 +13,41 @@ namespace Rocky.Controllers
         private readonly IPostRepository _postRepository;
         private readonly UserManager<IdentityUser> _userManager;
         private readonly IWebHostEnvironment _webHostEnvironment;
+        private readonly ILikeRepository _likeRepository;
         public BlogController(IPostRepository postRepository, UserManager<IdentityUser> userManager,
-                              IWebHostEnvironment webHostEnvironment) 
+                              IWebHostEnvironment webHostEnvironment, ILikeRepository likeRepository) 
         {
             _postRepository = postRepository;
             _userManager = userManager;
             _webHostEnvironment = webHostEnvironment;
+            _likeRepository = likeRepository;
         }
 
 
         public IActionResult Index(string searchTerm)
         {
-            IEnumerable<Post> post = _postRepository.GetAll();
+            var posts = _postRepository.GetAll()
+            .Select(post => new Post
+            {
+                Id = post.Id,
+                Title = post.Title,
+                Text = post.Text,
+                ShortText = post.ShortText,
+                Type = post.Type,
+                Image = post.Image,
+                CreatedDate = post.CreatedDate,
+                CreatedByUserId = post.CreatedByUserId,
+                Count = _likeRepository.GetAll(x => x.PostId == post.Id).Count(),
+            }).ToList();
 
             if (!string.IsNullOrEmpty(searchTerm))
             {
-                post = post.Where(p => p.Title.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
+                posts = posts.Where(p => p.Title.Contains(searchTerm, StringComparison.OrdinalIgnoreCase) ||
                                          p.Type.Contains(searchTerm, StringComparison.OrdinalIgnoreCase))
                              .ToList();
             }
 
-            return View(post);
+            return View(posts);
         }
 
         [Authorize(Roles = WC.AdminRole)]
@@ -72,23 +85,50 @@ namespace Rocky.Controllers
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = WC.CastomerRole + "," + WC.AdminRole)]
         public IActionResult Like(int Id)
         {
-            var post = _postRepository.Find(Id);
+            var userId = _userManager.GetUserId(User)!;
+            var existing = _likeRepository.FirstOrDefault(x => x.ApplicationUserId == userId && x.PostId == Id);
 
-            post.Like++;
+            if (existing != null)
+            {
+                 _likeRepository.Remove(existing);
+            }
+            else
+            {
+                 var like = new Like()
+                 {
+                     ApplicationUserId = userId,
+                     PostId = Id
+                 };
 
-            _postRepository.Update(post);
-            _postRepository.Save();
+                 _likeRepository.Update(like);
+            }
 
-            return RedirectToAction("Index");
+            _likeRepository.Save();
+            return Redirect(Request.Headers["Referer"].ToString());
+
         }
 
         public IActionResult Details(int Id)
         {
-            var post = _postRepository.Find(Id);
+            var posts = _postRepository.Find(Id);
 
-            return View(post);
+            posts = new Post
+            {
+                Id = posts.Id,
+                Title = posts.Title,
+                Text = posts.Text,
+                ShortText = posts.ShortText,
+                Type = posts.Type,
+                Image = posts.Image,
+                CreatedDate = posts.CreatedDate,
+                CreatedByUserId = posts.CreatedByUserId,
+                Count = _likeRepository.GetAll(x => x.PostId == posts.Id).Count(),
+            };
+
+            return View(posts);
         }
 
         [Authorize(Roles = WC.AdminRole)]
@@ -139,7 +179,6 @@ namespace Rocky.Controllers
 
             postVM.Post.CreatedByUserId = objFromDb.CreatedByUserId;
             postVM.Post.CreatedDate = objFromDb.CreatedDate;
-            postVM.Post.Like = objFromDb.Like;
 
             _postRepository.Update(postVM.Post);
             _postRepository.Save();

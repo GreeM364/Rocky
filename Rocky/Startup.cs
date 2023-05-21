@@ -55,7 +55,7 @@ namespace Rocky
             services.AddScoped<IOrderHeaderRepository, OrderHeaderRepository>();
             services.AddScoped<IOrderDetailRepository, OrderDetailRepository>();
             services.AddScoped<IPostRepository, PostRepository>();
-
+            services.AddScoped<ILikeRepository, LikeRepository>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env, IDbInitializer dbInitializer)
