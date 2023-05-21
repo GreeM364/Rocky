@@ -171,11 +171,10 @@ namespace Rocky.Controllers
                 NotFound();
             }
 
-            TempData[WC.Success] = "Action completed successfully";
-
             _postRepository.Remove(post!);
             _postRepository.Save();
 
+            TempData[WC.Success] = "Action completed successfully";
             return RedirectToAction("Index");
         }
     }

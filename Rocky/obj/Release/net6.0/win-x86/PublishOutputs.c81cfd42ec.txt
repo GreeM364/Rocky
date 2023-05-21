@@ -95,6 +95,7 @@ D:\Project\Visual Studio\Rocky\Rocky\obj\Release\net6.0\win-x86\PubTmp\Out\refs\
 D:\Project\Visual Studio\Rocky\Rocky\obj\Release\net6.0\win-x86\PubTmp\Out\refs\Microsoft.Extensions.Diagnostics.HealthChecks.dll
 D:\Project\Visual Studio\Rocky\Rocky\obj\Release\net6.0\win-x86\PubTmp\Out\refs\Microsoft.Extensions.Features.dll
 D:\Project\Visual Studio\Rocky\Rocky\obj\Release\net6.0\win-x86\PubTmp\Out\refs\Microsoft.Extensions.FileProviders.Composite.dll
+D:\Project\Visual Studio\Rocky\Rocky\obj\Release\net6.0\win-x86\PubTmp\Out\refs\Microsoft.Extensions.FileProviders.Embedded.dll
 D:\Project\Visual Studio\Rocky\Rocky\obj\Release\net6.0\win-x86\PubTmp\Out\refs\Microsoft.Extensions.FileProviders.Physical.dll
 D:\Project\Visual Studio\Rocky\Rocky\obj\Release\net6.0\win-x86\PubTmp\Out\refs\Microsoft.Extensions.FileSystemGlobbing.dll
 D:\Project\Visual Studio\Rocky\Rocky\obj\Release\net6.0\win-x86\PubTmp\Out\refs\Microsoft.Extensions.Hosting.dll

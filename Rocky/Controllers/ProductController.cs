@@ -59,7 +59,7 @@ namespace Rocky.Controllers
 
                 if (productVM.Product.Id == 0)
                 {
-                    string upload = webRootPath + WC.ImagePathPosts;
+                    string upload = webRootPath + WC.ImagePath;
                     string fileName = Guid.NewGuid().ToString();
                     string extension = Path.GetExtension(files[0].FileName);
 

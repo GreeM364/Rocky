@@ -6741,8 +6741,36 @@
       "PackagePath": "staticwebassets\\images\\patio.jpg"
     },
     {
+      "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\post\\46bf0bd0-8598-4758-a95a-e635eccb84c6.gif",
+      "PackagePath": "staticwebassets\\images\\post\\46bf0bd0-8598-4758-a95a-e635eccb84c6.gif"
+    },
+    {
+      "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\post\\59b752ca-806c-48f0-9362-b03c278b5911.jpg",
+      "PackagePath": "staticwebassets\\images\\post\\59b752ca-806c-48f0-9362-b03c278b5911.jpg"
+    },
+    {
+      "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\post\\70e680d8-9f4f-4414-a712-9d5aee061c1e.gif",
+      "PackagePath": "staticwebassets\\images\\post\\70e680d8-9f4f-4414-a712-9d5aee061c1e.gif"
+    },
+    {
+      "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\post\\d68437ab-4d30-4721-a416-c968eae5aa68.jpg",
+      "PackagePath": "staticwebassets\\images\\post\\d68437ab-4d30-4721-a416-c968eae5aa68.jpg"
+    },
+    {
+      "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\product\\24eba67c-ca4c-4121-8f2e-e2b1cf803d71.gif",
+      "PackagePath": "staticwebassets\\images\\product\\24eba67c-ca4c-4121-8f2e-e2b1cf803d71.gif"
+    },
+    {
       "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\product\\4131a245-3577-4701-bf5c-5dd887241c23.jpg",
       "PackagePath": "staticwebassets\\images\\product\\4131a245-3577-4701-bf5c-5dd887241c23.jpg"
+    },
+    {
+      "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\product\\5e90a5e7-11a2-47bd-b425-059c0e3b2b63.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\5e90a5e7-11a2-47bd-b425-059c0e3b2b63.jpg"
+    },
+    {
+      "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\product\\6f3c2a12-1a5f-4fb4-89ec-f4cba3c8f29c.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\6f3c2a12-1a5f-4fb4-89ec-f4cba3c8f29c.jpg"
     },
     {
       "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\product\\7f5fb40e-b857-4410-8a34-1f46e5099557.jpg",
@@ -6751,6 +6779,10 @@
     {
       "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\product\\89db6c62-ab4d-49cf-9754-ab57ef4c2a12.jpg",
       "PackagePath": "staticwebassets\\images\\product\\89db6c62-ab4d-49cf-9754-ab57ef4c2a12.jpg"
+    },
+    {
+      "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\product\\8c7818ad-0846-4470-9810-d7f9b2445367.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\8c7818ad-0846-4470-9810-d7f9b2445367.jpg"
     },
     {
       "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\product\\8e6472f6-25f3-4c0d-b351-6fcb2bf6fac4.jpg",
@@ -6763,6 +6795,10 @@
     {
       "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\product\\c74401d7-b80d-4363-8e91-d07407d975f6.jpg",
       "PackagePath": "staticwebassets\\images\\product\\c74401d7-b80d-4363-8e91-d07407d975f6.jpg"
+    },
+    {
+      "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\product\\df68eb3d-9c3a-44ef-89e0-bd3f418521c3.jpg",
+      "PackagePath": "staticwebassets\\images\\product\\df68eb3d-9c3a-44ef-89e0-bd3f418521c3.jpg"
     },
     {
       "Id": "D:\\Project\\Visual Studio\\Rocky\\Rocky\\wwwroot\\images\\tile.png",
