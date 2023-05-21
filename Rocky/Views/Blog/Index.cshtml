@@ -1,0 +1,169 @@
+﻿@model IEnumerable<Rocky_Models.Models.Post>
+@using Rocky_Utility;
+
+
+<style>
+    .card {
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: box-shadow 0.3s;
+        border: none;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+        .card:hover {
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+    }
+
+    .card-body {
+        padding: 15px;
+    }
+
+    .card-title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .card-text {
+        margin-bottom: 15px;
+        color: #777;
+    }
+
+    .like-button {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        text-decoration: none;
+    }
+
+        .like-button:focus {
+            outline: none;
+        }
+
+    .like-icon {
+        color: red;
+        transition: color 0.3s;
+    }
+
+    .like-button:hover .like-icon {
+        color: darkred;
+    }
+
+    .like-count {
+        font-size: 14px;
+        font-weight: bold;
+        color: red;
+        margin-left: 5px;
+    }
+
+    .post-details {
+        font-size: 12px;
+        color: gray;
+        margin-top: 10px;
+    }
+
+        .post-details span {
+            margin-right: 10px;
+        }
+
+    .card-footer {
+        background-color: #f8f9fa;
+        border-top: none;
+        border-bottom-left-radius: 10px;
+        border-bottom-right-radius: 10px;
+        padding: 10px;
+    }
+
+    .share-button {
+        background-color: transparent;
+        border: none;
+        padding: 0;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+
+        .share-button:focus {
+            outline: none;
+        }
+
+    .share-icon {
+        color: #333;
+        transition: color 0.3s;
+    }
+
+    .share-button:hover .share-icon {
+        color: dodgerblue;
+    }
+</style>
+
+<div class="container">
+    @if (User.IsInRole("Admin")) 
+    {
+        <div class="row mt-4">
+            <div class="col">
+                <a asp-controller="Blog" asp-action="Create" class="btn btn-primary">Add post</a>
+            </div>
+        </div>
+    }
+
+    <div class="row mb-4 mt-4">
+        <div class="col">
+            <form method="get" action="@Url.Action("Index", "Blog")">
+                <div class="input-group">
+                    <input type="text" name="searchTerm" class="form-control" placeholder="Search by name or type">
+                    <button type="submit" class="btn btn-primary">Search</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="row row-cols-2">
+        @foreach (var post in Model)
+        {
+            <div class="col">
+                <div class="card">
+                    <a href="@Url.Action("Details", "Blog", new { id = post.Id })">
+                        <img class="card-img-top" src="@WC.ImagePathPosts@post.Image" alt="Post Image">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">@post.Title</h5>
+                        <p class="card-text">@post.ShortText</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <form method="post" action="@Url.Action("Like", "Blog")">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="Id" value="@post.Id" />
+                                <button type="submit" class="btn btn-link like-button">
+                                    <i class="like-icon fas fa-heart"></i>
+                                    <span class="like-count text-danger">@post.Like</span>
+                                </button>
+                            </form>
+                            <button type="button" class="btn btn-link share-button">
+                                <i class="share-icon fas fa-share-alt"></i>
+                            </button>
+                        </div>
+                        <div class="post-details">
+                            <span>Автор: @post.CreatedByUserId</span>
+                            <span>Дата публикации: @post.CreatedDate.ToString("dd.MM.yyyy")</span>
+                            <span>Тип: @post.Type</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+
+
