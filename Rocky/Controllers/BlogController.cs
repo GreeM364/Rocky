@@ -26,7 +26,7 @@ namespace Rocky.Controllers
 
         public IActionResult Index(string searchTerm)
         {
-            var posts = _postRepository.GetAll()
+            var posts = _postRepository.GetAll(includeProperties: "ApplicationUser")
             .Select(post => new Post
             {
                 Id = post.Id,
@@ -36,7 +36,7 @@ namespace Rocky.Controllers
                 Type = post.Type,
                 Image = post.Image,
                 CreatedDate = post.CreatedDate,
-                CreatedByUserId = post.CreatedByUserId,
+                ApplicationUser = post.ApplicationUser,            
                 Count = _likeRepository.GetAll(x => x.PostId == post.Id).Count(),
             }).ToList();
 
@@ -75,7 +75,7 @@ namespace Rocky.Controllers
 
             postVM.Post.Image = fileName + extension;
             postVM.Post.CreatedDate = DateTime.Now;
-            postVM.Post.CreatedByUserId = _userManager.GetUserId(User)!;
+            postVM.Post.ApplicationUserId = _userManager.GetUserId(User)!;
 
             _postRepository.Add(postVM.Post);
             _postRepository.Save();
@@ -113,22 +113,22 @@ namespace Rocky.Controllers
 
         public IActionResult Details(int Id)
         {
-            var posts = _postRepository.Find(Id);
+            var post = _postRepository.FirstOrDefault(x => x.Id == Id, "ApplicationUser");
 
-            posts = new Post
+            post = new Post
             {
-                Id = posts.Id,
-                Title = posts.Title,
-                Text = posts.Text,
-                ShortText = posts.ShortText,
-                Type = posts.Type,
-                Image = posts.Image,
-                CreatedDate = posts.CreatedDate,
-                CreatedByUserId = posts.CreatedByUserId,
-                Count = _likeRepository.GetAll(x => x.PostId == posts.Id).Count(),
+                Id = post.Id,
+                Title = post.Title,
+                Text = post.Text,
+                ShortText = post.ShortText,
+                Type = post.Type,
+                Image = post.Image,
+                CreatedDate = post.CreatedDate,
+                ApplicationUser = post.ApplicationUser,
+                Count = _likeRepository.GetAll(x => x.PostId == post.Id).Count(),
             };
 
-            return View(posts);
+            return View(post);
         }
 
         [Authorize(Roles = WC.AdminRole)]
@@ -136,11 +136,11 @@ namespace Rocky.Controllers
         {
             PostVM postVM = new PostVM();
 
-             postVM.Post = _postRepository.Find(Id);
-             if (postVM == null)
-                 return NotFound();
+            postVM.Post = _postRepository.Find(Id);
+            if (postVM == null)
+                return NotFound();
 
-             return View(postVM);
+            return View(postVM);
 
         }
 
@@ -177,7 +177,7 @@ namespace Rocky.Controllers
                 postVM.Post.Image = objFromDb.Image;
             }
 
-            postVM.Post.CreatedByUserId = objFromDb.CreatedByUserId;
+            postVM.Post.ApplicationUserId = objFromDb.ApplicationUserId;
             postVM.Post.CreatedDate = objFromDb.CreatedDate;
 
             _postRepository.Update(postVM.Post);

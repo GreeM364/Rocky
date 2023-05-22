@@ -27,7 +27,8 @@ namespace Rocky_Models.Models
         [NotMapped]
         public int Count { get; set; }
 
-        public string CreatedByUserId { get; set; }
+        public string ApplicationUserId { get; set; }
+        public ApplicationUser ApplicationUser { get; set; }
 
         public List<Like> Likes { get; set; }
     }

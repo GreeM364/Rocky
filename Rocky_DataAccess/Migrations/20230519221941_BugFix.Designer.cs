@@ -12,8 +12,8 @@ using Rocky_DataAccess;
 namespace Rocky_DataAccess
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230519160946_UpdatePost")]
-    partial class UpdatePost
+    [Migration("20230519221941_BugFix")]
+    partial class BugFix
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -405,8 +405,11 @@ namespace Rocky_DataAccess
 
             modelBuilder.Entity("Rocky_Models.Models.Post", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("CreatedByUserId")
                         .IsRequired()
@@ -419,9 +422,8 @@ namespace Rocky_DataAccess
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Like")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("Like")
+                        .HasColumnType("int");
 
                     b.Property<string>("ShortText")
                         .IsRequired()

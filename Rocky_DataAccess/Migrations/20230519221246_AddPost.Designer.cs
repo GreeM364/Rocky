@@ -12,8 +12,8 @@ using Rocky_DataAccess;
 namespace Rocky_DataAccess
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230519221941_BugFix2")]
-    partial class BugFix2
+    [Migration("20230519221246_AddPost")]
+    partial class AddPost
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -422,8 +422,9 @@ namespace Rocky_DataAccess
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Like")
-                        .HasColumnType("int");
+                    b.Property<string>("Like")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ShortText")
                         .IsRequired()

@@ -12,8 +12,8 @@ using Rocky_DataAccess;
 namespace Rocky_DataAccess
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230519144949_AddImageToPost")]
-    partial class AddImageToPost
+    [Migration("20230522214208_AddReferenceUserToPost")]
+    partial class AddReferenceUserToPost
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -308,6 +308,30 @@ namespace Rocky_DataAccess
                     b.ToTable("InquiryHeaders");
                 });
 
+            modelBuilder.Entity("Rocky_Models.Models.Like", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ApplicationUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<int>("PostId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ApplicationUserId");
+
+                    b.HasIndex("PostId");
+
+                    b.ToTable("Likes");
+                });
+
             modelBuilder.Entity("Rocky_Models.Models.OrderDetail", b =>
                 {
                     b.Property<int>("Id")
@@ -405,18 +429,24 @@ namespace Rocky_DataAccess
 
             modelBuilder.Entity("Rocky_Models.Models.Post", b =>
                 {
-                    b.Property<string>("Id")
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
 
-                    b.Property<string>("CreatedByUserId")
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ApplicationUserId")
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
+
+                    b.Property<DateTime>("CreatedDate")
+                        .HasColumnType("datetime2");
 
                     b.Property<string>("Image")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Like")
+                    b.Property<string>("ShortText")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
@@ -434,7 +464,7 @@ namespace Rocky_DataAccess
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CreatedByUserId");
+                    b.HasIndex("ApplicationUserId");
 
                     b.ToTable("Posts");
                 });
@@ -568,6 +598,25 @@ namespace Rocky_DataAccess
                     b.Navigation("ApplicationUser");
                 });
 
+            modelBuilder.Entity("Rocky_Models.Models.Like", b =>
+                {
+                    b.HasOne("Rocky_Models.Models.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Rocky_Models.Models.Post", "Post")
+                        .WithMany("Likes")
+                        .HasForeignKey("PostId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+
+                    b.Navigation("Post");
+                });
+
             modelBuilder.Entity("Rocky_Models.Models.OrderDetail", b =>
                 {
                     b.HasOne("Rocky_Models.Models.OrderHeader", "OrderHeader")
@@ -600,13 +649,13 @@ namespace Rocky_DataAccess
 
             modelBuilder.Entity("Rocky_Models.Models.Post", b =>
                 {
-                    b.HasOne("Rocky_Models.Models.ApplicationUser", "CreatedBy")
+                    b.HasOne("Rocky_Models.Models.ApplicationUser", "ApplicationUser")
                         .WithMany()
-                        .HasForeignKey("CreatedByUserId")
+                        .HasForeignKey("ApplicationUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("CreatedBy");
+                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("Rocky_Models.Models.Product", b =>
@@ -618,6 +667,11 @@ namespace Rocky_DataAccess
                         .IsRequired();
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("Rocky_Models.Models.Post", b =>
+                {
+                    b.Navigation("Likes");
                 });
 #pragma warning restore 612, 618
         }
