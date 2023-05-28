@@ -222,10 +222,10 @@ namespace Rocky.Controllers
             else
             {
                 var PathToTemplate = _webHostEnvironment.WebRootPath + Path.DirectorySeparatorChar.ToString()
-                + "templates" + Path.DirectorySeparatorChar.ToString() + "Inquiry.html";
+                 + "templates" + Path.DirectorySeparatorChar.ToString() + "Inquiry.html";
 
-                var subject = "New Inquery";
-                var HtmlBody = "";
+                var subject = "New Inquiry";
+                string HtmlBody = "";
                 using (StreamReader sr = System.IO.File.OpenText(PathToTemplate))
                 {
                     HtmlBody = sr.ReadToEnd();
@@ -234,7 +234,7 @@ namespace Rocky.Controllers
                 StringBuilder productListSB = new StringBuilder();
                 foreach (var prod in ProductUserVM.ProductsList)
                 {
-                    productListSB.Append($"- Name: {prod.Name} <span style='font-size:14px;'> (ID: {prod.Id})</span> <br/>");
+                    productListSB.Append($" - Name: {prod.Name} <span style='font-size:14px;'> (ID: {prod.Id})</span><br />");
                 }
 
                 string messageBody = string.Format(HtmlBody,
